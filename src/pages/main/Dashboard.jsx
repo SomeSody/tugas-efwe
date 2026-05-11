@@ -7,8 +7,6 @@ export default function Dashboard() {
     return (
         <div className="bg-white font-[Trebuchet_MS,sans-serif]">
             <Dash />
-            <InterestCategories />
-            <ExperienceCards />
         </div>
     );
 }

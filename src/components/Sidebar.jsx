@@ -1,95 +1,145 @@
-import { CiDeliveryTruck } from "react-icons/ci"; 
-import { BsCalendarEvent } from "react-icons/bs"; 
-import { AiFillCustomerService } from "react-icons/ai"; 
-import { BsBorderStyle } from "react-icons/bs"; 
-import { MdDashboard } from "react-icons/md"; 
-import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { MdDashboard } from "react-icons/md";
+import { AiFillCustomerService } from "react-icons/ai";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { BsCalendarEvent } from "react-icons/bs";
 
-export default function Sidebar() {
-  const [activeTab, setActiveTab] = useState(0);
-  
+const sections = [
+  {
+    title: "Main",
+    items: [{ key: "dashboard", label: "Dashboard", count: null }],
+  },
+  {
+    title: "User Details",
+    items: [
+      { key: "admin", label: "Admin", count: 5 },
+      { key: "executive", label: "Executive", count: 9 },
+    ],
+  },
+];
 
-        const menuClass = ({ isActive }) =>
-        `flex cursor-pointer items-center rounded-xl p-4  space-x-2
-        ${isActive ? 
-            "text-hijau bg-green-200 font-extrabold" : 
-            "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
-        }`
+function GridIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+      <path d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z" />
+    </svg>
+  );
+}
 
-    return (
-        <div className="flex min-h-screen w-90 flex-col bg-white p-10 shadow-lg" 
-                id="sidebar">
-            {/* Logo */}
-            <div className="flex flex-col" id="sidebar-logo">
-                <span className="font-poppins text-[48px] text-gray-900" id="logo-title">
-		                TravelingGo
-		            </span>
-                <span className="font-semibold text-gray-400" id="logo-subtitle">Modern Admin Dashboard</span>
-            </div>
+function UserIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+      <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4.4 0-8 2.4-8 5.4 0 .9.7 1.6 1.6 1.6h12.8c.9 0 1.6-.7 1.6-1.6 0-3-3.6-5.4-8-5.4Z" />
+    </svg>
+  );
+}
 
-            {/* List Menu */}
-            <div className="mt-10" id="sidebar-menu">
-                <ul className="space-y-3" id="menu-list">
-                    <li>
-	                    <NavLink className={menuClass} id="menu-1" to="/"><MdDashboard />Dashboard</NavLink>
-	                </li>
-                    <li>
-	                    <NavLink className={menuClass} id="menu-3" to="customer"><AiFillCustomerService />Customers</NavLink>
-	                </li>
-                    <li>
-	                    <NavLink className={menuClass} id="menu-4" to="produk"><CiDeliveryTruck />Products</NavLink>
-	                </li>
-                    <li>
-	                    <NavLink className={menuClass} id="menu-2" to="orders"><BsCalendarEvent />Orders</NavLink>
-	                </li>
-                    {/* 
-	                    <NavLink className={menuClass} id="menu-4" to="/deliverer"><CiDeliveryTruck/>Deliverer</NavLink>
-	                </li>
-	                <li>
-	                    <NavLink className={menuClass} id="menu-5" to="/revenue"><BsCalendarEvent />Revenue</NavLink>
-	                </li>
-                    <li>
-                        <NavLink className={menuClass} to="/400">Error 400</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={menuClass} to="/401">Error 401</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={menuClass} to="/403">Error 403</NavLink>
-                    </li> */}
-                    <li>
-                        <NavLink className={menuClass} to="/search-all"><BsBorderStyle />Search All</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={menuClass} to="/things-to-do"><BsBorderStyle />Things to Do</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={menuClass} to="/hotels"><BsBorderStyle />Hotels</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={menuClass} to="/restaurants"><BsBorderStyle />Restaurants</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={menuClass} to="/cruises"><BsBorderStyle />Cruises</NavLink>
-                    </li>
-                </ul>
-            </div>
+const menuIcons = {
+  dashboard: <GridIcon />,
+  admin: <UserIcon />,
+  executive: <UserIcon />,
+};
 
-            {/* Footer */}
-            <div className="mt-auto" id="sidebar-footer">
-                <div className="bg-hijau px-4 py-2 rounded-md shadow-lg mb-10 flex items-center" id="footer-card">
-                    <div className="text-white text-sm" id="footer-text">
-                        <span>Please organize your menus through button below!</span>
-                        <div className="flex justify-center items-center p-2 mt-3 bg-white rounded-md space-x-2" id="add-menu-button">
-                            <span className="text-gray-600 flex items-center">Contact Us</span>
-                        </div>
-                    </div>
-                    <img className="w-20 rounded-full" id="footer-avatar" src="/img/syahul.jpg" />
-                </div>
-                <span className="font-bold text-gray-400" id="footer-brand">TravelingGo Admin Dashboard</span>
-                <p className="font-light text-gray-400" id="footer-copyright">&copy; 2025 All Right Reserved</p>
-            </div>
+const navLinkClass = ({ isActive }) =>
+  `flex w-full items-center gap-2 rounded-lg border px-3 py-2.5 text-sm font-medium transition ${
+    isActive
+      ? "border-transparent text-white shadow-[0_10px_25px_rgba(239,35,60,0.32)] bg-[#ef233c]"
+      : "border-black/10 bg-[#f0f0f0] text-[#ef233c] hover:border-white/20 hover:bg-white"
+  }`;
+
+export default function Sidebar({ activeMenu, onSelect, adminCount, executiveCount, accent }) {
+  const counts = {
+    dashboard: null,
+    admin: adminCount,
+    executive: executiveCount,
+  };
+
+  return (
+    <aside className="flex w-full max-w-[290px] flex-col border-r border-white/15 bg-[#101010] p-5 text-white lg:min-h-[calc(100vh-2px)]">
+      {/* Logo */}
+      <div className="mb-5 flex items-center gap-3 rounded-xl border border-white/10 bg-white px-3 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#ef233c] bg-white text-[#111]">
+          <span className="text-lg font-black tracking-tight text-[#ef233c]">S</span>
         </div>
-    );
+        <div className="min-w-0 text-[#8d0a0a]">
+          <div className="text-[28px] font-black leading-none tracking-tight">TravelingGO</div>
+          <div className="text-[9px] font-semibold tracking-[0.18em] text-[#666]">
+            Admin Sales Information Dashboard
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-4 rounded-2xl border border-white/15 bg-[#3d4249] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+
+        {/* Navigation Links */}
+        <div className="space-y-2">
+          <p className="px-1 text-[11px] font-medium text-white/60">Menu</p>
+          <ul className="space-y-2">
+            <li>
+              <NavLink className={navLinkClass} to="/" end>
+                <MdDashboard className="h-4 w-4" />
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={navLinkClass} to="customer">
+                <AiFillCustomerService className="h-4 w-4" />
+                Customers
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={navLinkClass} to="produk">
+                <CiDeliveryTruck className="h-4 w-4" />
+                Products
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={navLinkClass} to="orders">
+                <BsCalendarEvent className="h-4 w-4" />
+                Orders
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* Sections with badge counts */}
+        {sections.map((section) => (
+          <div key={section.title} className="space-y-2">
+            <p className="px-1 text-[11px] font-medium text-white/60">{section.title}</p>
+            <div className="space-y-2">
+              {section.items.map((item) => {
+                const isActive = activeMenu === item.key;
+                const badgeCount = counts[item.key];
+
+                return (
+                  <button
+                    key={item.key}
+                    type="button"
+                    onClick={() => onSelect(item.key)}
+                    className={`flex w-full items-center justify-between rounded-lg border px-3 py-2.5 text-sm font-medium transition ${
+                      isActive
+                        ? "border-transparent text-white shadow-[0_10px_25px_rgba(239,35,60,0.32)]"
+                        : "border-black/10 bg-[#f0f0f0] text-[#ef233c] hover:border-white/20 hover:bg-white"
+                    }`}
+                    style={isActive ? { backgroundColor: accent } : undefined}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>{menuIcons[item.key]}</span>
+                      <span>{item.label}</span>
+                    </span>
+                    {badgeCount !== null ? (
+                      <span className="inline-flex min-w-5 items-center justify-center rounded-sm bg-[#7ed957] px-1.5 text-[11px] font-bold leading-4 text-black">
+                        {badgeCount}
+                      </span>
+                    ) : null}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </aside>
+  );
 }
