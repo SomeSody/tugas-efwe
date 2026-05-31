@@ -4,6 +4,8 @@ import { AiFillCustomerService } from "react-icons/ai";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BsCalendarEvent } from "react-icons/bs";
 
+import { Users } from "lucide-react";
+
 const sections = [
   {
     title: "User Details",
@@ -95,46 +97,53 @@ export default function Sidebar({ activeMenu, onSelect, adminCount, executiveCou
                 Orders
               </NavLink>
             </li>
+            <li>
+              <NavLink className={navLinkClass} to="/reports">
+                <BsCalendarEvent className="h-4 w-4" />
+                Reports
+              </NavLink>
+            </li>
           </ul>
         </div>
 
         {/* Sections with badge counts */}
-        {sections.map((section) => (
-          <div key={section.title} className="space-y-2">
-            <p className="px-1 text-[11px] font-medium text-white/60">{section.title}</p>
-            <div className="space-y-2">
-              {section.items.map((item) => {
-                const isActive = activeMenu === item.key;
-                const badgeCount = counts[item.key];
+        <NavLink >
+          {sections.map((section) => (
+            <div key={section.title} className="space-y-2">
+              <p className="px-1 text-[11px] font-medium text-white/60">{section.title}</p>
+              <div className="space-y-2">
+                {section.items.map((item) => {
+                  const isActive = activeMenu === item.key;
+                  const badgeCount = counts[item.key];
 
-                return (
-                  <button
-                    key={item.key}
-                    type="button"
-                    onClick={() => onSelect(item.key)}
-                    className={`flex w-full items-center justify-between rounded-lg border px-3 py-2.5 text-sm font-medium transition ${
-                      isActive
-                        ? "border-transparent text-white shadow-[0_10px_25px_rgba(239,35,60,0.32)]"
-                        : "border-black/10 bg-[#f0f0f0] text-[#ef233c] hover:border-white/20 hover:bg-white"
-                    }`}
-                    style={isActive ? { backgroundColor: accent } : undefined}
-                  >
-                    <span className="flex items-center gap-2">
-                      <span>{menuIcons[item.key]}</span>
-                      <span>{item.label}</span>
-                    </span>
-                    {badgeCount !== null ? (
-                      <span className="inline-flex min-w-5 items-center justify-center rounded-sm bg-[#7ed957] px-1.5 text-[11px] font-bold leading-4 text-black">
-                        {badgeCount}
+                  return (
+                    <button
+                      key={item.key}
+                      type="button"
+                      onClick={() => onSelect(item.key)}
+                      className={`flex w-full items-center justify-between rounded-lg border px-3 py-2.5 text-sm font-medium transition ${
+                        isActive
+                          ? "border-transparent text-white shadow-[0_10px_25px_rgba(239,35,60,0.32)]"
+                          : "border-black/10 bg-[#f0f0f0] text-[#ef233c] hover:border-white/20 hover:bg-white"
+                      }`}
+                      style={isActive ? { backgroundColor: accent } : undefined}
+                    >
+                      <span className="flex items-center gap-2">
+                        <span>{menuIcons[item.key]}</span>
+                        <span>{item.label}</span>
                       </span>
-                    ) : null}
-                  </button>
-                );
-              })}
+                      {badgeCount !== null ? (
+                        <span className="inline-flex min-w-5 items-center justify-center rounded-sm bg-[#7ed957] px-1.5 text-[11px] font-bold leading-4 text-black">
+                          {badgeCount}
+                        </span>
+                      ) : null}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
-
+          ))}
+        </NavLink>
       </div>
     </aside>
   );
