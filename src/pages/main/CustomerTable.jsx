@@ -1,52 +1,93 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import PageHeader from "../../components/PageHeader";
 import Badge from "../../components/Badge";
 import FilterTab from "../../components/Filter";
 import Table from "../../components/Table";
 import TableRow from "../../components/TableRow";
 import TableCell from "../../components/TableCell";
-import StatusBadge from "../../components/Badge";
 import IconButton from "../../components/IconButton";
 import Pagination from "../../components/Pagination";
 import EditIcon from "../../components/EditIcon";
 import DeleteIcon from "../../components/DeleteIcon";
-import Button from "../../components/Button";
 import Avatar from "../../components/Avatar";
 import Footer from "../../components/Footer";
 
 const COLUMNS = [
   { key: "customer_id", label: "ID" },
   { key: "customer_name", label: "USERNAME" },
+  { key: "avatar", label: "AVATAR" },
   { key: "email", label: "EMAIL" },
   { key: "phone", label: "PHONE" },
   { key: "status", label: "STATUS" },
-  { key: "avatar", label: "AVATAR" },
+  { key: "loyalty", label: "LOYALTY" },
   { key: "actions", label: "MODIFY" },
 ];
 
 const ITEMS_PER_PAGE = 5;
 
 export default function UserTable({ data = SAMPLE_DATA }) {
+  // useState
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState("all");
+  const [search, setSearch] = useState("");
 
-  const filteredData =
-    activeTab === "all"
-      ? data
-      : data.filter(
-          (item) => item.status.toLowerCase() === activeTab
-        );
+  // useRef
+  const searchRef = useRef(null);
 
-  const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
+  useEffect(() => {
+    searchRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    console.log("Tab aktif:", activeTab);
+  }, [activeTab]);
+
+  const filteredData = data.filter((item) => {
+    const matchStatus =
+      activeTab === "all"
+        ? true
+        : item.status.toLowerCase() === activeTab;
+
+    const matchSearch =
+      item.customer_name
+        .toLowerCase()
+        .includes(search.toLowerCase()) ||
+      item.email
+        .toLowerCase()
+        .includes(search.toLowerCase());
+
+    return matchStatus && matchSearch;
+  });
+
+  const totalPages = Math.ceil(
+    filteredData.length / ITEMS_PER_PAGE
+  );
+
   const paginated = filteredData.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
 
   const tabs = [
-    { key: "all", label: "All", count: data.length },
-    { key: "active", label: "Active", count: data.filter((d) => d.status === "Active").length },
-    { key: "inactive", label: "Inactive", count: data.filter((d) => d.status === "Inactive").length },
+    {
+      key: "all",
+      label: "All",
+      count: data.length,
+    },
+    {
+      key: "active",
+      label: "Active",
+      count: data.filter(
+        (d) => d.status === "Active"
+      ).length,
+    },
+    {
+      key: "inactive",
+      label: "Inactive",
+      count: data.filter(
+        (d) => d.status === "Inactive"
+      ).length,
+    },
   ];
 
   const handleEdit = (item) => {
@@ -55,10 +96,6 @@ export default function UserTable({ data = SAMPLE_DATA }) {
 
   const handleDelete = (item) => {
     console.log("Delete:", item);
-  };
-
-  const handleAdd = () => {
-    console.log("Add new user");
   };
 
   return (
@@ -71,10 +108,7 @@ export default function UserTable({ data = SAMPLE_DATA }) {
         color: "#fff",
       }}
     >
-
-      <PageHeader
-        title="Users"
-      />
+      <PageHeader title="Users" />
 
       <FilterTab
         tabs={tabs}
@@ -82,12 +116,28 @@ export default function UserTable({ data = SAMPLE_DATA }) {
         onTabChange={(key) => {
           setActiveTab(key);
           setCurrentPage(1);
-        }}
-      />
-      
-      <Button variant="primary" onClick={handleAdd}>
-        Add User
-      </Button>
+        }} />
+
+      <div style={{ margin: "16px 0" }}>
+        <input
+          ref={searchRef}
+          type="text"
+          placeholder="Search user..."
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setCurrentPage(1);
+          }}
+          style={{
+            width: "300px",
+            padding: "10px",
+            borderRadius: "8px",
+            border: "1px solid #444",
+            background: "#1e1e1e",
+            color: "#fff",
+            outline: "none",
+          }} />
+      </div>
 
       <Table columns={COLUMNS}>
         {paginated.map((item, index) => (
@@ -96,13 +146,16 @@ export default function UserTable({ data = SAMPLE_DATA }) {
             <TableCell style={{ color: "#fff", fontWeight: 500 }}>
               {item.customer_name}
             </TableCell>
+            <TableCell>
+              <Avatar name={item.customer_name} />
+            </TableCell>
             <TableCell>{item.email}</TableCell>
             <TableCell>{item.phone}</TableCell>
             <TableCell>
               <Badge status={item.status} />
             </TableCell>
             <TableCell>
-              <Avatar name={item.customer_name} />
+              <Badge status={item.loyalty} />
             </TableCell>
             
             <TableCell>
@@ -128,8 +181,8 @@ export default function UserTable({ data = SAMPLE_DATA }) {
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
+        onPageChange={setCurrentPage} />
+
       <Footer />
     </div>
   );
