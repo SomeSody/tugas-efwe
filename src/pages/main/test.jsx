@@ -2,7 +2,7 @@ import { useState } from "react"
 import { BsFillExclamationDiamondFill } from "react-icons/bs"
 import { ImSpinner2 } from "react-icons/im"
 import { AiFillDelete } from "react-icons/ai"
-import { API } from "../../service/API.js"
+import { API } from "../../service/API"
 
 export default function Register() {
     const [loading, setLoading] = useState(false)
