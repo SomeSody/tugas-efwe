@@ -1,8 +1,8 @@
 import { GiIsland } from "react-icons/gi"; 
 import { useState } from "react";
-import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
 } from "recharts";
+import { NavLink } from "react-router-dom";
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
 const bookingData = [
@@ -150,7 +150,7 @@ export default function TravellingGOProfile() {
         {/* Back link */}
         <div className="px-6 pt-5 pb-3">
           <button className="flex items-center gap-2 text-gray-400 hover:text-[#0B1E3D] text-sm transition-colors">
-            <span>←</span> Kembali
+            <NavLink to="/Guest">← Kembali</NavLink>
           </button>
         </div>
 

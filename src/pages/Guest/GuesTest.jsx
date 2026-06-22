@@ -11,6 +11,7 @@ import { SiMini } from "react-icons/si";
 import { FaBus } from "react-icons/fa"; 
 import { GiCityCar } from "react-icons/gi"; 
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import FormBook from "../../components/FormBook";
 import ContactPopup from "../../components/ContactPopup";
 
@@ -157,6 +158,9 @@ export default function TravellingGO() {
             <button onClick={() => setShowBooking(true)}
                     className="bg-[#FF6B4A] hover:bg-[#e85c3c] text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-[#FF6B4A]/30 active:scale-95">
               Booking
+            </button>
+            <button className="w-11 h-11 rounded-2xl bg-[#3F9CBF] flex items-center justify-center text-sm hover:shadow-lg hover:shadow-[#FF6B4A]">
+                <NavLink to="/profil">Pr</NavLink>
             </button>
           </div>
 
