@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import './App.css'
 
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"))
+const GuestLayout = React.lazy(() => import("./layouts/GuestLayout"))
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"))
 
 const Dashboard = React.lazy(() => import("./pages/main/Dashboard"))
@@ -17,6 +18,9 @@ const NotFound = React.lazy(() => import("./pages/main/NotFound"))
 const Error400 = React.lazy(() => import("./pages/main/Error400"))
 const Error401 = React.lazy(() => import("./pages/main/Error401"))
 const Error403 = React.lazy(() => import("./pages/main/Error403"))
+
+const GuesTest = React.lazy(() => import("./pages/Guest/GuesTest"))
+const Profil = React.lazy(() => import("./pages/Guest/Profil"))
 
 const Test = React.lazy(() => import("./pages/main/Test"))
 const TestLogin = React.lazy(() => import("./pages/Auth/Login"))
@@ -35,6 +39,10 @@ function App() {
 return (
     <Suspense fallback={<Loading />}>
     <Routes>
+        <Route element={<GuestLayout/>}>
+            <Route path="/guest" element={<GuesTest />} />
+            <Route path="/profil" element={<Profil />} />
+        </Route>
         <Route element={<MainLayout/>}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/orders" element={<Orders />} />

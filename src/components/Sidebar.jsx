@@ -58,6 +58,12 @@ export default function Sidebar({adminCount, executiveCount }) {
               <NavLink className={navLinkClass} to="/test"><BsCalendarEvent className="h-4 w-4" />Test</NavLink>
             </li>
             <li>
+              <NavLink className={navLinkClass} to="/profil"><BsCalendarEvent className="h-4 w-4" />Profil</NavLink>
+            </li>
+            <li>
+              <NavLink className={navLinkClass} to="/guest"><BsCalendarEvent className="h-4 w-4" />Guest</NavLink>
+            </li>
+            <li>
               <NavLink className={navLinkClass} to="/Login"><BsCalendarEvent className="h-4 w-4" />Test Login</NavLink>
             </li>
           </ul>
