@@ -10,7 +10,7 @@ export default function Faq() {
             Pertanyaan yang Sering Diajukan
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-gray-600">
-            Temukan jawaban untuk pertanyaan umum tentang CRM kami.
+            Temukan jawaban untuk pertanyaan umum tentang layanan sewa armada kami.
           </p>
         </div>
 

@@ -56,15 +56,9 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          {isLoggedIn ? (
-            <Button asChild variant="default" size="sm" className="transition-all duration-300 ease-in-out hover:-translate-y-0.5">
-              <Link to="/guest">Masuk / Daftar</Link>
-            </Button>
-          ) : (
             <Button asChild variant="default" size="sm" className="transition-all duration-300 ease-in-out hover:-translate-y-0.5">
               <Link to="/login">Masuk / Daftar</Link>
             </Button>
-          )}
         </div>
       </div>
     </nav>

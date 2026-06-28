@@ -1,139 +1,165 @@
 export const NAV_LINKS = [
-  { label: "Fitur", href: "#fitur" },
+  { label: "Armada", href: "#armada" },
   { label: "FAQ", href: "#faq" },
 ]
 
 export const HERO_DATA = {
-  headline: "Sistem CRM Paling Simpel untuk Naikkan Penjualan",
+  headline: "Sewa Armada Travel Terbaik & Terpercaya untuk Perjalanan Anda",
+  headlineHighlight: "Perjalanan Anda",
   subheadline:
-    "Kelola data pelanggan, lacak leads, dan tingkatkan konversi penjualan bisnis Anda — semua dalam satu platform yang mudah digunakan. Mulai gratis, tanpa kartu kredit.",
-  primaryCta: { label: "Mulai Gratis", href: "/register" },
-  secondaryCta: { label: "Pelajari Lebih Lanjut", href: "#fitur" },
+    "Penyedia jasa penyewaan armada kendaraan terpelihara untuk kebutuhan wisata, bisnis, dan perjalanan rombongan dengan driver profesional.",
+  heroImage:
+    "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=500&fit=crop",
+  heroImageAlt: "Armada travel bus di jalan raya",
+  primaryCta: { label: "Pesan Sekarang", href: "/register" },
+  secondaryCta: { label: "Lihat Armada", href: "#armada" },
 }
 
 export const TRUST_DATA = {
-  title: "Dipercaya oleh +10,000 Pebisnis di Indonesia",
+  title: "Dipercaya oleh Ribuan Pelanggan di Seluruh Indonesia",
   stats: [
-    { value: "10,000+", label: "Pengguna Aktif" },
-    { value: "98%", label: "Kepuasan Pelanggan" },
-    { value: "50M+", label: "Transaksi Diproses" },
-    { value: "24/7", label: "Dukungan Pelanggan" },
+    { value: "10,000+", label: "Perjalanan Sukses" },
+    { value: "99%", label: "Tepat Waktu" },
+    { value: "500+", label: "Unit Armada" },
+    { value: "24/7", label: "Layanan Support" },
   ],
 }
 
 export const FEATURES_DATA = [
   {
-    id: "kelola-data",
-    title: "Kelola Data Pelanggan",
+    id: "armada-prima",
+    title: "Armada Prima & Bersih",
     description:
-      "Simpan dan organize semua data pelanggan Anda dalam satu tempat. Akses riwayat interaksi, catatan pembelian, dan preferensi pelanggan dengan mudah.",
+      "Semua unit kendaraan (HiAce, Elf, Bus) dirawat secara berkala dan dijaga kebersihannya demi kenyamanan Anda.",
+    icon: "Shield",
+  },
+  {
+    id: "driver-profesional",
+    title: "Driver Profesional",
+    description:
+      "Didukung oleh pengemudi berpengalaman, ramah, santun, dan memahami rute perjalanan secara mendalam.",
     icon: "Users",
   },
   {
-    id: "otomatisasi",
-    title: "Otomatisasi Follow-Up",
+    id: "layanan-24-7",
+    title: "Layanan 24/7",
     description:
-      "Atur pengingat otomatis untuk follow-up pelanggan. Tidak ada lagi leads yang terlewat atau pelanggan yang terlantar.",
-    icon: "Zap",
+      "Tim support kami siap melayani kebutuhan koordinasi perjalanan dan reservasi Anda kapan saja.",
+    icon: "Headphones",
+  },
+]
+
+export const FLEET_DATA = [
+  {
+    id: "hiace",
+    name: "Toyota HiAce",
+    capacity: "12–15 Penumpang",
+    price: "Mulai Rp 1.200.000",
+    period: "/hari",
+    description:
+      "Cocok untuk perjalanan keluarga besar atau rombongan kecil. Nyaman, irit BBM, dan lincah di jalanan kota.",
+    features: [
+      "AC + Entertainment System",
+      "Reclining Seat",
+      "Bagasi Luas",
+      "Driver Profesional",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1625805866449-3589fe3f71a3?w=600&h=400&fit=crop",
+    imageAlt: "Toyota HiAce putih",
+    cta: "Pesan HiAce",
+    ctaHref: "/register",
+    highlighted: false,
   },
   {
-    id: "laporan",
-    title: "Laporan & Analitik",
+    id: "elf",
+    name: "Isuzu Elf",
+    capacity: "16–19 Penumpang",
+    price: "Mulai Rp 1.500.000",
+    period: "/hari",
     description:
-      "Dapatkan insight bisnis real-time dengan dashboard analitik yang intuitif. Pantau performa tim sales dan tren penjualan Anda.",
-    icon: "BarChart3",
+      "Pilihan favorit untuk wisata rombongan dan gathering kantor. Kapasitas lega dengan performa tangguh.",
+    features: [
+      "AC Full + Microphone",
+      "Reclining Seat",
+      "USB Charging Port",
+      "Driver + Asisten",
+      "Asuransi Perjalanan",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600&h=400&fit=crop",
+    imageAlt: "Isuzu Elf minibus",
+    cta: "Pesan Elf",
+    ctaHref: "/register",
+    highlighted: true,
+  },
+  {
+    id: "bus",
+    name: "Medium & Big Bus",
+    capacity: "30–59 Penumpang",
+    price: "Mulai Rp 2.500.000",
+    period: "/hari",
+    description:
+      "Solusi terbaik untuk rombongan besar, study tour, dan event korporat. Tersedia pilihan toilet onboard.",
+    features: [
+      "AC + LED TV + Karaoke",
+      "Reclining Seat Premium",
+      "Toilet (Big Bus)",
+      "Driver + Asisten",
+      "Asuransi Perjalanan Lengkap",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1557223562-6c77ef162107?w=600&h=400&fit=crop",
+    imageAlt: "Bus pariwisata besar",
+    cta: "Pesan Bus",
+    ctaHref: "/register",
+    highlighted: false,
   },
 ]
 
 export const FAQ_DATA = [
   {
     id: "faq-1",
-    question: "Apakah benar-benar gratis untuk memulai?",
+    question: "Apakah harga sewa sudah termasuk BBM dan Tol?",
     answer:
-      "Ya! Kami menyediakan paket gratis selamanya untuk hingga 100 kontak. Anda bisa upgrade kapan saja ketika bisnis Anda berkembang.",
+      "Ya, semua paket sewa kami sudah termasuk bahan bakar (BBM) dan biaya tol sesuai rute yang telah disepakati. Untuk perjalanan di luar rute standar, akan ada penyesuaian biaya yang diinformasikan sebelumnya.",
   },
   {
     id: "faq-2",
-    question: "Apakah data saya aman?",
+    question: "Berapa minimal durasi penyewaan armada?",
     answer:
-      "Keamanan data adalah prioritas utama kami. Semua data dienkripsi end-to-end dan disimpan di server yang tersertifikasi ISO 27001.",
+      "Minimal penyewaan adalah 1 hari (12 jam). Untuk kebutuhan antar-jemput bandara atau city tour setengah hari, kami menyediakan paket khusus yang bisa Anda konsultasikan dengan tim kami.",
   },
   {
     id: "faq-3",
-    question: "Bisa diintegrasikan dengan tools lain?",
+    question: "Apakah bisa sewa tanpa driver?",
     answer:
-      "Tentu saja. CRM kami mendukung integrasi dengan WhatsApp Business, email marketing tools, dan berbagai platform e-commerce populer.",
+      "Untuk keselamatan dan kenyamanan, seluruh armada kami wajib disertai driver profesional yang sudah berpengalaman. Namun, Anda dapat menentukan rute dan jadwal perjalanan sesuai keinginan.",
   },
   {
     id: "faq-4",
-    question: "Apakah ada dukungan teknis?",
+    question: "Apa saja wilayah jangkauan operasional TravelingGO?",
     answer:
-      "Kami menyediakan dukungan 24/7 melalui live chat, email, dan telepon. Tim kami siap membantu Anda kapan saja.",
-  },
-]
-
-export const PRICING_DATA = [
-  {
-    id: "free",
-    name: "Free",
-    price: "Rp 0",
-    period: "selamanya",
-    description: "Cocok untuk pebisnis pemula yang ingin mencoba.",
-    features: [
-      "Hingga 100 kontak",
-      "Dashboard dasar",
-      "1 pengguna",
-      "Dukungan email",
-    ],
-    cta: "Mulai Gratis",
-    ctaHref: "/register",
-    highlighted: false,
+      "Kami melayani penyewaan armada untuk seluruh wilayah Pulau Jawa, Bali, dan Sumatra. Untuk perjalanan lintas provinsi atau destinasi khusus, silakan hubungi tim kami untuk koordinasi lebih lanjut.",
   },
   {
-    id: "pro",
-    name: "Pro",
-    price: "Rp 199.000",
-    period: "/bulan",
-    description: "Untuk bisnis yang serius meningkatkan penjualan.",
-    features: [
-      "Kontak tak terbatas",
-      "Dashboard analitik lengkap",
-      "Hingga 10 pengguna",
-      "Integrasi WhatsApp & Email",
-      "Dukungan prioritas 24/7",
-    ],
-    cta: "Coba 14 Hari Gratis",
-    ctaHref: "/register",
-    highlighted: true,
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "Solusi khusus untuk tim besar dan korporasi.",
-    features: [
-      "Semua fitur Pro",
-      "Pengguna tak terbatas",
-      "API akses penuh",
-      "Manajer akun khusus",
-      "SLA 99.9% uptime",
-    ],
-    cta: "Hubungi Kami",
-    ctaHref: "/register",
-    highlighted: false,
+    id: "faq-5",
+    question: "Apakah armada dilengkapi asuransi perjalanan?",
+    answer:
+      "Ya, semua armada kami dilengkapi asuransi perjalanan yang mencakup penumpang dan bagasi. Asuransi ini sudah termasuk dalam biaya sewa untuk memberikan ketenangan selama perjalanan Anda.",
   },
 ]
 
 export const FINAL_CTA_DATA = {
-  headline: "Siap Tingkatkan Penjualan Anda?",
-  subheadline: "Mulai Sekarang, Gratis 14 Hari. Tanpa kartu kredit.",
-  ctaLabel: "Coba Gratis Sekarang",
+  headline: "Siap Memulai Perjalanan Impian Anda?",
+  subheadline:
+    "Hubungi kami sekarang dan dapatkan penawaran terbaik untuk sewa armada travel pilihan Anda.",
+  ctaLabel: "Pesan Armada Sekarang",
   ctaHref: "/register",
 }
 
 export const FOOTER_DATA = {
-  copyright: "© 2026 CRM App. All rights reserved.",
+  copyright: "\u00a9 2026 TravelingGO. All rights reserved.",
   links: [
     { label: "Syarat & Ketentuan", href: "#" },
     { label: "Kebijakan Privasi", href: "#" },
