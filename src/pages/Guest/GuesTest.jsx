@@ -171,15 +171,15 @@ export default function TravellingGO() {
 
           <div className="hidden md:flex items-center gap-3">
             {!isLoggedIn && (
-        <>
-            <button className="bg-[#FF6B4A] hover:bg-[#e85c3c] text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-[#FF6B4A]/30 active:scale-95">
-                <NavLink to="/login">Masuk</NavLink>
-            </button>
-            <button className="bg-[#FF6B4A] hover:bg-[#e85c3c] text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-[#FF6B4A]/30 active:scale-95">
-                <NavLink to="/register">Daftar Gratis</NavLink>
-            </button>
-        </>
-    )}
+            <>
+                <button className="bg-[#FF6B4A] hover:bg-[#e85c3c] text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-[#FF6B4A]/30 active:scale-95">
+                    <NavLink to="/">Masuk</NavLink>
+                </button>
+                <button className="bg-[#FF6B4A] hover:bg-[#e85c3c] text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-[#FF6B4A]/30 active:scale-95">
+                    <NavLink to="/register">Daftar Gratis</NavLink>
+                </button>
+            </>
+            )}
             <button onClick={() => setShowBooking(true)}
                     className="bg-[#FF6B4A] hover:bg-[#e85c3c] text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-[#FF6B4A]/30 active:scale-95">
               Booking
