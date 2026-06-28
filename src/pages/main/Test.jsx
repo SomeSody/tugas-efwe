@@ -4,7 +4,7 @@ import { ImSpinner2 } from "react-icons/im"
 import { AiFillDelete } from "react-icons/ai"
 import { API } from "../../service/API"
 
-export default function Register() {
+export default function Test() {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
