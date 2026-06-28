@@ -42,7 +42,7 @@ export default function Login() {
             }
 
             localStorage.setItem("user", JSON.stringify({ id: data.id, username: data.username }))
-            navigate("/")
+            navigate("/guest")
 
         } catch (err) {
             setError("Terjadi kesalahan. Silakan coba lagi.")

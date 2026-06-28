@@ -25,7 +25,7 @@ export default function Features() {
           {FEATURES_DATA.map((feature) => {
             const IconComponent = iconMap[feature.icon]
             return (
-              <Card key={feature.id} className="border-gray-200 bg-white transition-shadow hover:shadow-md">
+              <Card key={feature.id} className="border-gray-200 bg-white transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-100/50 hover:-translate-y-1">
                 <CardHeader>
                   <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-green-100">
                     <IconComponent className="size-5 text-green-600" />

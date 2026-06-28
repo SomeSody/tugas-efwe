@@ -72,6 +72,59 @@ export const FAQ_DATA = [
   },
 ]
 
+export const PRICING_DATA = [
+  {
+    id: "free",
+    name: "Free",
+    price: "Rp 0",
+    period: "selamanya",
+    description: "Cocok untuk pebisnis pemula yang ingin mencoba.",
+    features: [
+      "Hingga 100 kontak",
+      "Dashboard dasar",
+      "1 pengguna",
+      "Dukungan email",
+    ],
+    cta: "Mulai Gratis",
+    ctaHref: "/register",
+    highlighted: false,
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    price: "Rp 199.000",
+    period: "/bulan",
+    description: "Untuk bisnis yang serius meningkatkan penjualan.",
+    features: [
+      "Kontak tak terbatas",
+      "Dashboard analitik lengkap",
+      "Hingga 10 pengguna",
+      "Integrasi WhatsApp & Email",
+      "Dukungan prioritas 24/7",
+    ],
+    cta: "Coba 14 Hari Gratis",
+    ctaHref: "/register",
+    highlighted: true,
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    price: "Custom",
+    period: "",
+    description: "Solusi khusus untuk tim besar dan korporasi.",
+    features: [
+      "Semua fitur Pro",
+      "Pengguna tak terbatas",
+      "API akses penuh",
+      "Manajer akun khusus",
+      "SLA 99.9% uptime",
+    ],
+    cta: "Hubungi Kami",
+    ctaHref: "/register",
+    highlighted: false,
+  },
+]
+
 export const FINAL_CTA_DATA = {
   headline: "Siap Tingkatkan Penjualan Anda?",
   subheadline: "Mulai Sekarang, Gratis 14 Hari. Tanpa kartu kredit.",
