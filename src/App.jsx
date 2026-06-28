@@ -29,6 +29,8 @@ const Login = React.lazy(() => import("./pages/Auth/Login"))
 const Forgot = React.lazy(() => import("./pages/Auth/Forgot"))
 const Register = React.lazy(() => import("./pages/Auth/Register"))
 
+const LandingPage = React.lazy(() => import("./components/landing/LandingPage"))
+
 const Loading = React.lazy(() => import("./components/Loading"))
 
 
@@ -43,8 +45,9 @@ return (
             <Route path="/guest" element={<GuesTest />} />
             <Route path="/profil" element={<Profil />} />
         </Route>
+        <Route path="/" element={<LandingPage />} />
         <Route element={<MainLayout/>}>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/customer" element={<Customer />} />
             <Route path="/customer/:id" element={<CustomerDetail />} />
