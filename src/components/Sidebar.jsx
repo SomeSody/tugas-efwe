@@ -22,10 +22,10 @@ export default function Sidebar({adminCount, executiveCount }) {
     <aside className="flex w-full max-w-[290px] flex-col border-r border-white/15 bg-[#101010] p-5 text-white lg:min-h-[calc(100vh-2px)]">
       <div className="mb-5 flex items-center gap-3 rounded-xl border border-white/10 bg-white px-3 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
         <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#ef233c] bg-white text-[#111]">
-          <span className="text-lg font-black tracking-tight text-[#ef233c]">S</span>
+          <span className="w-10 h-10 rounded-xl bg-[#FF6B4A] flex items-center justify-center text-white font-black text-lg shadow-md">T</span>
         </div>
         <div className="min-w-0 text-[#8d0a0a]">
-          <div className="text-[28px] font-black leading-none tracking-tight">TravelingGO</div>
+          <div className="text-2xl font-black text-[#0B1E3D] tracking-tight">Travelling<span className="text-[#FF6B4A]">GO</span></div>
           <div className="text-[9px] font-semibold tracking-[0.18em] text-[#666]">
             Admin Sales Information Dashboard
           </div>
